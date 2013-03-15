@@ -5,4 +5,7 @@ $ActionSendStreamDriverMode 1 # require TLS
 $ActionSendStreamDriverAuthMode x509/name # authenticate by hostname
 <% end -%>
 
+<% @filters.each do |filter| -%>
+<%= filter %>
+<% end -%>
 *.* @<%= @host %><%= ":#{@port}" if @port %>

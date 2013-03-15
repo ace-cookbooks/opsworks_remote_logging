@@ -25,6 +25,7 @@ template "/etc/rsyslog.d/remote.conf" do
   variables ({
     :host => node[:remote_logging][:host],
     :port => node[:remote_logging][:port],
-    :use_tls => (node[:remote_logging][:cert_url] != nil && node[:remote_logging][:cert_url] != "")
+    :use_tls => (node[:remote_logging][:cert_url] != nil && node[:remote_logging][:cert_url] != ""),
+    :filters => node[:remote_logging][:filters]
   })
 end
