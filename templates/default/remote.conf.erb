@@ -1,0 +1,8 @@
+<% if @use_tls -%>
+$DefaultNetstreamDriverCAFile /etc/syslog.remote.crt # trust these CAs
+$ActionSendStreamDriver gtls # use gtls netstream driver
+$ActionSendStreamDriverMode 1 # require TLS
+$ActionSendStreamDriverAuthMode x509/name # authenticate by hostname
+<% end -%>
+
+*.* @<%= @host %><%= ":#{@port}" if @port %>
