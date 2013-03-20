@@ -1,4 +1,4 @@
-# opsworks_app_environment cookbook
+# opsworks_remote_logging cookbook
 
 # Requirements
 
@@ -10,4 +10,4 @@
 
 # Author
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Ryan Schlesinger (ryan@instanceinc.com)
