@@ -6,7 +6,7 @@ end
 if node[:remote_logging][:cert_url]
   package 'rsyslog-gnutls' do
     action :install
-    notifies :restart, resources(:service => 'rsyslog')
+    notifies :restart, 'service[rsyslog]'
   end
 
   remote_file "/etc/syslog.remote.crt" do
@@ -21,8 +21,8 @@ template "/etc/rsyslog.d/remote.conf" do
   owner 'root'
   group 'root'
   mode 0644
-  notifies :restart, resources(:service => 'rsyslog')
-  variables ({
+  notifies :restart, 'service[rsyslog]'
+  variables({
     :host => node[:remote_logging][:host],
     :port => node[:remote_logging][:port],
     :use_tls => (node[:remote_logging][:cert_url] != nil && node[:remote_logging][:cert_url] != ""),
